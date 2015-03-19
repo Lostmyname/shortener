@@ -65,4 +65,11 @@ describe Shortener::ShortenedUrl do
       end
     end
   end
+
+  it "should use a custom key" do
+    long_url = "http://www.doorkeeperhq.com/"
+    custom_key = "custom"
+    short_url = Shortener::ShortenedUrl.create(url: long_url, unique_key: custom_key)
+    short_url.unique_key.should == custom_key
+  end
 end
